@@ -1,0 +1,124 @@
+/* header.scss */
+$height-header : 75px;
+header {
+  color: $color-white;
+  font-family: $font-san-serif;
+  .navbar {
+    border-radius: 0;
+    .navbar-toggle {
+      .icon-bar {
+        background-color: $color-white;
+      }
+      &:hover {
+        background-color: $color-accent;
+      }
+      &:focus {
+        background-color: transparent;
+      }
+    }
+  }
+  .navbar-default {
+    background-color: $color-md-gray;
+    border: none;
+  }
+  .navbar-default .navbar-nav {
+    >li {
+      >a {
+        color: $color-white;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        &:hover {
+          color: $color-white;
+          background-color: $color-accent;
+        }
+        &:focus {
+          color: $color-white;
+        }
+      }
+    }
+    >li.open {
+      >a, >a:hover, >a:focus {
+        background-color: $color-accent;
+        color: $color-white;
+      }
+      .dropdown-menu {
+        li {
+          a {
+            color: $color-white;
+            &:hover {
+              background-color: $color-accent;
+              color: $color-white;
+            }
+          }
+        }
+      }
+    }
+  }
+  .navbar-brand {
+    background-image: url("/assets/images/prep-hoops-logo.svg");
+    background-size: 135px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    width: 180px;
+    height: $height-header;
+  }
+  .navbar-toggle {
+    margin-top: 15px;
+    margin-right: 20px;
+  }
+}
+// large Format Menu
+$color-menu-border : lighten( $color-md-gray, 10% );
+@media (min-width: 768px){
+  .navbar-brand {
+    border-right: 1px solid $color-menu-border;
+  }
+  .navbar-default {
+    .navbar-nav {
+      >li {
+        border-right: 1px solid $color-menu-border;
+        &:hover {
+          background-color: $color-accent;
+        }
+        &.logout {
+          position: absolute;
+          right: 0;
+          background-color: $color-accent;
+          border: none;
+          a {
+            &:hover {
+              color: $color-white;
+            }
+          }
+        }
+        >a {
+          padding: 35px 20px 0px;
+          height: $height-header;
+        }
+      }
+      >.open>a{
+        background-color: $color-accent;
+        color: $color-white;
+        &:hover, &:focus {
+          background-color: inherit;
+          color: $color-white;;
+        }
+      }
+    }
+    .dropdown-menu {
+      background-color: $color-md-gray;
+      color: $color-white;
+      padding: 10px 0;
+      left: -2px;
+      top: 99%;
+      li {
+        a {
+          color: $color-white;
+          &:hover {
+            background-color: $color-accent;
+          }
+        }
+      }
+    }
+  }
+}

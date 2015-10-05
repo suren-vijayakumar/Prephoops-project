@@ -1,0 +1,51 @@
+/* tables.scss */
+table {
+  margin-bottom: 10px;
+  table-layout: fixed;
+  a {
+    color: #000;
+  }
+  a:link:after, a:visited:after {
+    content: "";
+  }
+  a.red:link {color: #ff0000; font-style: normal;}
+  a.red:active {color: #ff0000; background: #ffffff; font-style: normal;}
+  a.red:visited {color: #ff0000; background: #ffffff; font-style: normal;}
+  a.red:hover {color: #ff0000; background: #ffffff; font-style: normal;}
+
+  tr.spacer {
+    height: 15px;
+  }
+}
+table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/// Admin Table
+  th.site-short-name {
+    width: 60px;
+  }
+  td.feed-url {
+    word-wrap: break-word;
+    text-align: left;
+  }
+  th.site-edit, th.site-delete {
+    width: 100px;
+  }
+//// Dashboard / Site Table
+td.date {
+  width: 140px;
+}
+td.td-dark {
+  background-color: lighten($color-md-gray, 10%);
+  color: $color-white;
+}

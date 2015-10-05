@@ -1,0 +1,74 @@
+<div class="col-md-12 content">
+    <h1>{{siteName}}</h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="date-search row">
+                <form action="" class="form-inline">
+                    <div class="datepicker form-group col-sm-4 col-xs-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">From:</div>
+                            <input type="text" class="form-control" datepicker-popup ng-model="first" is-open="opened1" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open($event, 'opened1')"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="datepicker form-group col-sm-4 col-xs-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">To:</div>
+                            <input type="text" class="form-control" datepicker-popup ng-model="last" is-open="opened2" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open($event, 'opened2')"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-4">
+                        <input type="button" id="getRSS" class="btn btn-submit post" ng-click="getRSS(first, last)" value="Submit"/>
+                    </div>
+                </form>
+            </div>
+            <div class="table-responsive">
+                <table class="col-xs-12 table-sitepage">
+                    <tr>
+                        <td>Date</td>
+
+                        <td ng-repeat="author in uniqueAuthors">{{author}}</td>
+
+                        <!--<td ng-repeat="site in siteIds"><a href="" ng-click="openModal('lg')">{{ site[1][0].length }}</a></td>-->
+                    </tr>
+
+                    <tr ng-repeat='day in authorsWithArticles'>
+                        <td>{{ day.date }}</td>
+                        <td ng-repeat="author in day.authors" ng-click="openModal('md')"><a href="" ng-class="{red: (author.articles.length==0)}">{{author.articles.length}}</a>
+                        </td>
+                    </tr>
+                    <tr class="spacer">
+                    </tr>
+
+                    <tr>
+                        <td class="td-dark">Total Articles</td>
+
+                        <td ng-repeat="total in totalArticles track by $index">{{total}}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-dark">Daily AVG</td>
+
+                        <td ng-repeat="avg in dailyAvg track by $index">{{avg}}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-dark">Maximum</td>
+
+                        <td ng-repeat="maxNo in max track by $index">{{maxNo}}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-dark">Zero Days</td>
+
+                        <td  ng-repeat="days in zeroDays track by $index" ng-style="{'background-color': 'rgba(255,0,0,'+ (days-arrayMin(zeroDays))*days*(.8)/(arrayMax(zeroDays)* arrayMax(zeroDays)) +')'}">{{days}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

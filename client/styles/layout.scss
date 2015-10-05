@@ -1,0 +1,82 @@
+/* layout.scss */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+
+}
+body {
+  background-image: url("/assets/images/bg-main.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+a {
+  color: $color-accent;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: $font-san-serif;
+}
+.page-wrapper {
+  min-height: 100%;
+  margin-bottom: -$height-footer;
+}
+.page-wrapper:after {
+  content: "";
+  display: block;
+}
+footer, .page-wrapper:after {
+  /* .push must be the same height as footer */
+  height: $height-footer;
+}
+main {
+  margin: 20px 20px 40px;
+}
+.col-center {
+  float: none;
+  margin: 0 auto;
+}
+#goToAdmin, #dashboardBanner {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+#goToAdmin {
+  margin-top: 2px;
+}
+#article {
+  border: solid;
+  padding-left: 3px;
+  margin-bottom: 3px;
+}
+.dropdown {
+  position: relative;
+}
+.border {
+  border: solid;
+}
+.bottom {
+  height: 40px;
+}
+.full button span {
+  background-color: limegreen;
+  border-radius: 32px;
+  color: black;
+}
+.partially button span {
+  background-color: orange;
+  border-radius: 32px;
+  color: black;
+}
+
+
+.logout {
+  margin-bottom: 2px;
+}
+
+a.red:link {color: #ff0000; font-style: normal;}
+a.red:active {color: #ff0000; background: #ffffff; font-style: normal;}
+a.red:visited {color: #ff0000; background: #ffffff; font-style: normal;}
+a.red:hover {color: #ff0000; background: #ffffff; font-style: normal;}
+

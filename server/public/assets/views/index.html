@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--STYLES-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <title>Prep Hoops</title>
+</head>
+<body ng-app="prepHoopsApp">
+<div class="page-wrapper">
+    <header>
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#dashboard"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" collapse="navCollapsed">
+                <ul class="nav navbar-nav">
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li ng-controller="DropdownCtrl" class="dropdown" dropdown>
+                        <a href="#" dropdown-toggle class="dropdown-toggle" data-toggle="dropdown">Sites<b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-model="selectedSite" ng-repeat="site in feeds" role="menuitem" ng-click="go('/site')"><a href="">{{site.siteFullName}}</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#admin">Admin</a></li>
+                    <li ng-controller="logoutController" class="logout"><a href="" ng-click='logout()'>Logout</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+    </header>
+    <main ng-view class="container-fluid">
+        <!--Angular views display here-->
+    </main>
+</div>
+<footer>
+    <p class="copyright">Copyright Prep Hoops</p>
+</footer>
+
+<!--Scripts-->
+<script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
+<script type="text/javascript" src="/vendors/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="/vendors/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script type="text/javascript" src="/vendors/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="/assets/scripts/project.min.js"></script>
+<script type="text/javascript" src="/assets/scripts/controllers/login.min.js"></script>
+<script type="text/javascript" src="/assets/scripts/controllers/register.min.js"></script>
+<script type="text/javascript" src="/assets/scripts/controllers/dashboard.min.js"></script>
+<script type="text/javascript" src="/assets/scripts/controllers/site.min.js"></script>
+<script type="text/javascript" src="/assets/scripts/controllers/admin.min.js"></script>
+</body>
+</html>

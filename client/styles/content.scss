@@ -1,0 +1,42 @@
+/* content.scss */
+
+.content {
+  background-color: $color-white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  h1 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+}
+.refresh-database {
+  float: right;
+  background-color: transparent;
+  border: 2px solid $color-md-gray;
+  color: $color-md-gray;
+  &:hover {
+    border-color: $color-accent;
+    color: $color-accent;
+  }
+}
+.date-search {
+  margin-bottom: 10px;
+}
+.datepicker {
+  .input-group {
+    width: 100%;
+    .input-group-addon {
+      background-color: lighten($color-md-gray, 10%);
+      color: $color-white;
+    }
+  }
+}
+.admin {
+  h2 {
+    margin-top: 0px;
+  }
+  .networklist {
+    clear: both;
+  }
+}

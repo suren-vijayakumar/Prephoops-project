@@ -1,0 +1,11 @@
+<!--<p>Register Page!</p>-->
+<p>Registration Page</p>
+<section class="authSection">
+    <form id="userRegistrationForm" method="post">
+        <label for="username">Username:</label>
+        <input type="text" ng-model="userRegistrationForm.username" name="username" id="username"/> </br>
+        <label for="password">Password:</label>
+        <input type="password" ng-model="userRegistrationForm.password" name="password" id="password"/>
+        <input type="submit" id="register" class="" ng-click="registerNewUser(userRegistrationForm)" value="Register"/>
+    </form>
+</section>

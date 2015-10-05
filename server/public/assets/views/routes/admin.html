@@ -1,0 +1,90 @@
+<div class="col-xs-12 admin content">
+    <div class="row">
+    <section class="adminSection col-sm-6">
+        <h2>Add a New Site</h2>
+        <form class="form-horizontal" novalidate id="adminForm" method="post">
+            <div class="form-group">
+                <label for="siteFullName" class="col-xs-4 control-label">Site Name: </label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" ng-model="adminForm.siteFullName" name="siteFullName" id="siteFullName" placeholder="test"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="siteShortName" class="col-xs-4 control-label">Report Name: </label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" ng-model="adminForm.siteShortName" name="siteShortName" id="siteShortName"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="rssURL" class="col-xs-4 control-label">RSS Feed: </label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" ng-model="adminForm.rssURL" name="rssURL" id="rssURL"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-4 col-xs-8">
+                    <input class="btn btn-submit" type="submit" id="addsite" class="" ng-click="assignSiteID(adminForm)" value="Submit"/>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <section class="editSection col-sm-6">
+        <h2>Edit an Existing Site</h2>
+        <form class="form-horizontal" novalidate id="editForm">
+            <div class="form-group">
+                <label for="editShortName" class="col-xs-4 control-label">Site: </label>
+                <div class="col-xs-8">
+                    <select class="col-xs-7 form-control" ng-model="editFormSelector" ng-change="changedValue(editFormSelector)"
+                            data-ng-options="site as site.siteFullName for site in sitesSelector">
+                        <option value="">Select Site</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="editShortName" class="col-xs-4 control-label">Report Name: </label>
+                <div class="col-xs-8">
+                    <input class="form-control" type="text" ng-model="editForm.editShortName" name="editShortName" id="editShortName" placeholder=""/>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="editFullName" class="col-xs-4 control-label">Site Name: </label>
+                <div class="col-xs-8">
+                    <input class="form-control" type="text" ng-model="editForm.editFullName" name="editFullName" id="editFullName"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="rssURL" class="col-xs-4 control-label">RSS Feed: </label>
+                <div class="col-xs-8">
+                    <input class="form-control" type="text" ng-model="editForm.editRssURL" name="editRssURL" id="editRssURL" placeholder="{{ editFormUrl }}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-4 col-xs-8">
+                    <input class="btn btn-submit" type="submit" id="editSite" class="" ng-click="editSite(editForm)" value="Update"/>
+                </div>
+            </div>
+        </form>
+    </section>
+    </div>
+    <section class="networklist">
+        <h2>Sites</h2>
+        <table class="col-xs-12 admin">
+            <tr>
+                <th class="site-short-name">Report Name</th>
+                <th>Site Name</th>
+                <th>RSS Feed</th>
+                <th class="site-delete">Delete</th>
+            </tr>
+            <tr ng-repeat="site in sites">
+                <td>{{site.siteShortName}}</td>
+                <td class="site-name">{{site.siteFullName}}</td>
+                <td class="feed-url">{{site.rssURL}}</td>
+                <td><button class="removeButton btn btn-danger" ng-click="removeSite('lg')">Remove</button> </td>
+            </tr>
+        </table>
+
+    </section>
+</div>

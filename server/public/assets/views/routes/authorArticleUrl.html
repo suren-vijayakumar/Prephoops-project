@@ -1,0 +1,9 @@
+<div ng-repeat="article in modalArticles">
+    <div class="modal-article">
+        <p class="title"><a href="{{article.url}}" target="_blank">{{article.title}}</a></p>
+        <p class="author">by: {{article.author}}</p>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-submit" type="button" ng-click="ok()">OK</button>
+</div>

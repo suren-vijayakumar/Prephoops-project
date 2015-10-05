@@ -1,0 +1,10 @@
+/* footer.scss */
+
+footer {
+  background-color: $color-md-gray;
+  color: $color-white;
+  padding: 10px 20px;
+  .copyright {
+    float: right;
+  }
+}
